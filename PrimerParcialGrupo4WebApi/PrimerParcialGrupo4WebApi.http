@@ -1,0 +1,6 @@
+@PrimerParcialGrupo4WebApi_HostAddress = http://localhost:5099
+
+GET {{PrimerParcialGrupo4WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
