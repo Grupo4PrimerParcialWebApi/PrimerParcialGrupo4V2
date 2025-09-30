@@ -1,6 +1,12 @@
-namespace PrimerParcialGrupo4WebApi.Data;
+using Microsoft.EntityFrameworkCore;
+using PrimerParcialGrupo4WebApi.Models;
 
-public class AppDbContext
+namespace PrimerParcialGrupo4WebApi.Data
 {
-    
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+        public DbSet<SupportTicket> SupportTickets { get; set; } = null!;
+    }
 }
