@@ -9,6 +9,7 @@ namespace PrimerParcialGrupo4WebApi.Data
 
         public DbSet<Producto> Productos { get; set; } = null!;
         public DbSet<SupportTicket> SupportTickets { get; set; } = null!;
+        public DbSet<Event> Events { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
