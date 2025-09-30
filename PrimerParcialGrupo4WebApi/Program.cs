@@ -3,17 +3,18 @@ using PrimerParcialGrupo4WebApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1️⃣ Agregar EF Core con SQL Server
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Configurar EF Core con SQL Server
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 2️⃣ Controladores y Swagger
+// Servicios esenciales
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddEndpointsApiExplorer(); // Para Swagger
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Activar Swagger solo en desarrollo
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,4 +24,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
